@@ -1,13 +1,14 @@
 import { useState } from "react";
 import * as XLSX from "xlsx";
 import {parseDate} from '@internationalized/date';
+import Analysis  from './Analysis.js';
 
 import { ComboBox, Item, Section, DatePicker, Button, defaultTheme, Provider, Grid, View, TextField} from '@adobe/react-spectrum';
 
 
 
 function App() {
-  let [data, setData] = useState([]);
+  const [data, setData] = useState([]);
   const [partnersData, setPartnersData] = useState([]);
   const [productsData, setProductsData] = useState([]);
   const [metricsData, setMetricsData] = useState([]);
@@ -90,6 +91,12 @@ function makeDropdownPartners (value, index, array){
       label="End Date"
       defaultValue={parseDate('2023-07-01')}
     />
+
+    <Analysis 
+      foo={{data}}
+    />
+
+
     </Provider>
 
       {data.length > 0 && (
